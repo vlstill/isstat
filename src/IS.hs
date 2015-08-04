@@ -53,7 +53,9 @@ passedStudents = parseMarks >>> map (second passed) >>> filter snd >>> map fst
 
 parsePts :: String -> Points
 parsePts = dropWhile (/= '*') >>> separateBy '*' >>> filter (any isDigit) >>>
-           map (takeWhile ((||) <$> isDigit <*> (== '.')) >>> read) >>> sum
+           map (takeWhile ((||) <$> isDigit <*> (== '.')) >>> fix >>> read) >>> sum
+  where fix ('.':xs) = "0." ++ xs
+        fix x = x
 
 parseNb :: String -> [ (Uco, Points) ]
 parseNb = extract (head &&& (!! 7) >>> read *** parsePts) >>> sortBy (comparing snd)

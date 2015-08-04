@@ -26,4 +26,4 @@ main = do
 table :: [ (Points, Int, Int, Double) ] -> String
 table = unlines . map line
   where
-    line (pts, tot, succ, pro) = concat [show pts, "\t", show succ, "/", show tot, " (", printf "%0.1f" (pro * 100), " %)"]
+    line (pts, tot, succ, pro) = printf ">= %4.1f  %d/%d (%0.1f %%)" pts succ tot (pro * 100)
