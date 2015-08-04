@@ -60,7 +60,7 @@ executable isstat
   other-extensions:    DeriveDataTypeable
   
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.8, syb >=0.4
+  build-depends:       base >=4.7, syb >=0.4
   
   -- Directories containing source files.
   hs-source-dirs:      src
