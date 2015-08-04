@@ -5,6 +5,7 @@ import Stat
 import System.Environment
 import Text.Printf
 import Text.Read
+import Control.Applicative
 
 main = do
     args <- getArgs
